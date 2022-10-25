@@ -1,33 +1,10 @@
 <script>
-    import { browser, dev, prerendering } from '$app/environment';
-
-    let dataUsuario = {
-        email : "",
-        password : "",
-    }
-
-    async function login () {
-        var formdata = new FormData();
-        formdata.append("email", dataUsuario.email);
-        formdata.append("password", dataUsuario.password);
-
-        var requestOptions = {
-            method: 'POST',
-            body: formdata,
-            redirect: 'follow'
-        };
-
-        const res = await fetch("https://crud.jonathansoto.mx/api/login", requestOptions);
-        const response = await res.json();
-        if(response.data != null){
-            // Go to /home page
-            goto('/home');
-        }
-    }
-
+    import { browser } from '$app/environment';
+    export let form;
 </script>
 
 <svelte:head>
+    <title>DevEcommerce | Login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
     <!-- Layout config Js -->
     <script src="http://localhost:5173/assets/js/layout.js"></script>
@@ -56,6 +33,8 @@
         type="text/css"
     />
 </svelte:head>
+
+
 <main>
     <div class="auth-page-wrapper pt-5">
         <!-- auth page bg -->
@@ -99,47 +78,48 @@
                                         Sign in to continue to Velzon.
                                     </p>
                                 </div>
-                                <div class="p-2 mt-4">
-                                    <div class="mb-3">
-                                        <label for="useremail" class="form-label">Email
-                                            <span class="text-danger">*</span>
-                                        </label>
-                                        <input type="email" class="form-control" id="useremail" bind:value={dataUsuario.email}
-                                            placeholder="Enter email address" required name="email"/>
-                                        <div class="invalid-feedback">
-                                            Please enter email
+                                <form method="POST">
+                                    <div class="p-2 mt-4">
+                                        <div class="mb-3">
+                                            <label for="useremail" class="form-label">Email
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <input type="email" class="form-control" id="useremail"
+                                                placeholder="Enter email address" required name="email"/>
+                                            <div class="invalid-feedback">
+                                                Please enter email
+                                            </div>
                                         </div>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <div class="float-end">
-                                            <a
-                                                href="./forgotPassword"
-                                                class="text-muted"
-                                                >Forgot password?</a
-                                            >
+    
+                                        <div class="mb-3">
+                                            <div class="float-end">
+                                                <a
+                                                    href="./forgotPassword"
+                                                    class="text-muted"
+                                                    >Forgot password?</a
+                                                >
+                                            </div>
+    
+                                            <label class="form-label" for="password-input">Password
+                                                <span class="text-danger">*</span></label>
+                                            <div class="position-relative auth-pass-inputgroup mb-3">
+                                                <input type="password" class="form-control pe-5 password-input"
+                                                    placeholder="Enter password" id="password-input" name="password" required />
+                                                <button
+                                                    class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted shadow-none password-addon"
+                                                    type="button" id="password-addon">
+                                                    <i class="ri-eye-fill align-middle" />
+                                                </button>
+                                            </div>
                                         </div>
-
-                                        <label class="form-label" for="password-input">Password
-                                            <span class="text-danger">*</span></label>
-                                        <div class="position-relative auth-pass-inputgroup mb-3">
-                                            <input type="password" class="form-control pe-5 password-input" bind:value={dataUsuario.password}
-                                                placeholder="Enter password" id="password-input" name="password" required />
-                                            <button
-                                                class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted shadow-none password-addon"
-                                                type="button" id="password-addon">
-                                                <i class="ri-eye-fill align-middle" />
+    
+                                        <div class="mt-4">
+                                            <button class="btn btn-success w-100" type="submit">
+                                                Sign In
                                             </button>
                                         </div>
                                     </div>
-
-                                    <div class="mt-4">
-                                        <button class="btn btn-success w-100" on:click={login}>
-                                            Sign In
-                                        </button>
-                                    </div>
-                                    <input type="hidden" name="action" value="access">
-                                </div>
+                                </form>
                             </div>
                             <!-- end card body -->
                         </div>
