@@ -1,5 +1,7 @@
 <script>
     import { browser } from '$app/environment';
+    export let data;
+    console.log(data.products.data);
 </script>  
 <svelte:head>
     
