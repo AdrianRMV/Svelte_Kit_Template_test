@@ -1,5 +1,5 @@
 export const actions = {
-    register: async ({ request }) => {
+    register: async ({ request, fetch }) => {
 
         // Optiene los datos del formulario
         const formData = await request.formData();
@@ -23,9 +23,9 @@ export const actions = {
         dataForm.append('password', password);
         dataForm.append('profile_photo_file', profile_photo_file);
 
-        const res = await fetch('http://localhost:5173/api/user/register',{
+        const res = await fetch('/api/user/register',{
             method: 'POST',
-            body: dataForm
+            body: JSON.stringify(dataForm)
         });
         const data = await res.json();
         console.log(data);

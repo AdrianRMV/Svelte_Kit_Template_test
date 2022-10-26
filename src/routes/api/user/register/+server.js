@@ -1,5 +1,5 @@
 export const POST = async ({ request, fetch }) => {
-    const body = await request.json();
+    const body = await request;
 
     console.log(body);
 
