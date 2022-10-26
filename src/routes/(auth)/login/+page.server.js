@@ -9,14 +9,6 @@ export const actions = {
         const email = formData.get('email');
         const password = formData.get('password');
 
-
-        // const res = await fetch('/api/users');
-        // const data = await res.json();
-
-        // return {
-        //     users: data.data
-        // }
-
         let requestOptions = {
             method: 'POST',
             body: JSON.stringify({
@@ -24,6 +16,6 @@ export const actions = {
                 password : password
             })
         };
-        fetch('/api/users',requestOptions);
+        fetch('/api/user/login',requestOptions);
     },
 };
