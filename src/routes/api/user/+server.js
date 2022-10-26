@@ -30,18 +30,3 @@ export const GET = async ({ request, url, fetch }) => {
     });
 };
 
-export const POST = async ({ request, url, fetch }) => {
-    const body = await request.json();
-    console.log(body.email);
-    console.log(body.password);
-
-    var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: body,
-    };
-
-    fetch("https://crud.jonathansoto.mx/api/users", requestOptions)
-
-    return new Response(JSON.stringify({ message: 'Sucess' }), { status: 200 });
-};

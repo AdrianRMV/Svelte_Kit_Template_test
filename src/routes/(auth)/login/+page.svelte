@@ -77,7 +77,7 @@
                                         Sign in to continue to Velzon.
                                     </p>
                                 </div>
-                                <form method="POST">
+                                <form method="POST" action="?/login">
                                     <div class="p-2 mt-4">
                                         <div class="mb-3">
                                             <label for="useremail" class="form-label">Email

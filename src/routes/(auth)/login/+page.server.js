@@ -1,21 +1,20 @@
-import { SECRET_API_KEY } from '$env/static/private';
-
-console.log(SECRET_API_KEY);
-
 export const actions = {
-    default: async ({ request, fetch }) => {
+    login: async ({ request, fetch }) => {
+        // Optiene los datos del formulario
         const formData = await request.formData();
 
-        const email = formData.get('email');
-        const password = formData.get('password');
+        // Convierte el arreglo de objetos a un solo objeto con las propiedades mandadas en el formulario
+        const dataUser = Object.fromEntries([...formData]);
 
         let requestOptions = {
             method: 'POST',
             body: JSON.stringify({
-                email : email,
-                password : password
+                email: dataUser.email,
+                password: dataUser.password
             })
         };
-        fetch('/api/user/login',requestOptions);
+        const res = await fetch('/api/user/login',requestOptions);
+        const data = await res.json();
+        console.log(data);
     },
 };
