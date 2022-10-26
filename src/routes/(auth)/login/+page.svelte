@@ -1,6 +1,5 @@
 <script>
     import { browser } from '$app/environment';
-    export let form;
 </script>
 
 <svelte:head>
