@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-    <title>DevEcommerce | Login</title>
+    <title>DevEcommerce | Inicia Sesion</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
     <!-- Layout config Js -->
     <script src="http://localhost:5173/assets/js/layout.js"></script>
@@ -126,11 +126,11 @@
 
                         <div class="mt-4 text-center">
                             <p class="mb-0">
-                                Don't have an account ? <a
-                                    href="/registerUser"
+                                No tienes una cuenta ? <a
+                                    href="/register"
                                     class="fw-semibold text-primary text-decoration-underline"
                                 >
-                                    Signup
+                                    Registrate
                                 </a>
                             </p>
                         </div>

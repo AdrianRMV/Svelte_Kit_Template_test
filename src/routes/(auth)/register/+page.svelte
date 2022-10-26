@@ -4,7 +4,7 @@
 </script>
     
     <svelte:head>
-        <title>DevEcommerce | Signup</title>
+        <title>DevEcommerce | Registro</title>
         <!-- ============================================ -->
         <!-- Css template -->
         <!-- ============================================ -->
@@ -76,9 +76,9 @@
                                         <h5 class="text-primary">Create New Account</h5>
                                         <p class="text-muted">Get your free velzon account now</p>
                                     </div>
-                                    <form method="POST">
+                                    <form method="POST" enctype=multipart/form-data>
                                         <div class="p-2 mt-4">
-                                            <form enctype="multipart/form-data" method="POST" action="http://localhost/app/AuthController.php">
+                                            <form method="POST">
                                                 <div class="mb-3">
                                                     <label for="username" class="form-label">Nombre <span class="text-danger">*</span></label>
                                                     <input type="text" name="name" class="form-control" id="username" placeholder="Ingresa tu nombre" required>
@@ -127,7 +127,7 @@
                                                 </div>
         
                                                 <div class="mb-3">
-                                                    <input name="cover" required type="file" class="form-control" aria-describedby="basic-addon1">
+                                                    <input name="cover" id="image_cover" required type="file" class="form-control" aria-describedby="basic-addon1">
                                                 </div>
         
                                                 <div class="mt-4">
@@ -143,7 +143,7 @@
                             <!-- end card -->
     
                             <div class="mt-4 text-center">
-                                <p class="mb-0">Already have an account ? <a href="#" class="fw-semibold text-primary text-decoration-underline"> Signin </a> </p>
+                                <p class="mb-0">Ya tienes una cuenta?  <a href="/login" class="fw-semibold text-primary text-decoration-underline"> Inicia Sesion </a> </p>
                             </div>
     
                         </div>

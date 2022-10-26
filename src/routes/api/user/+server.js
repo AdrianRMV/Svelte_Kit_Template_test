@@ -1,7 +1,10 @@
 let myHeaders = new Headers();
+import { BEARER_TOKEN } from '$env/static/private';
+console.log(BEARER_TOKEN);
+
 myHeaders.append(
     'Authorization',
-    'Bearer 1638|8YXHOIpFrAkDKAkbCUf5cr6XWJ6ycyUf7EwUqKnd'
+    `Bearer ${BEARER_TOKEN}`
 );
 
 export const GET = async ({ request, url, fetch }) => {
