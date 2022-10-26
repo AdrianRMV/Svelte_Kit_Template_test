@@ -1,32 +1,29 @@
 export const actions = {
-    default: async ({ request, fetch }) => {
+    register: async ({ request, fetch }) => {
 
-
+        // Optiene los datos del formulario
         const formData = await request.formData();
 
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const lastname = formData.get('lastname');
-        const phone_number = formData.get('phone_number');
-        const password = formData.get('password');
-        // const image = formData.get('cover');
+        // Convierte el arreglo de objetos a un solo objeto con las propiedades mandadas en el formulario
+        const dataUser = Object.fromEntries([...formData]);
 
+        console.log(dataUser.cover)
 
-        let requestOptions = {
-            method: 'POST',
-            body: JSON.stringify({
-                name: name,
-                lastname: lastname,
-                email: email,
-                phone_number: phone_number,
-                created_by: 'jonathan soto',
-                role: 'Administrador',
-                password: password,
-                profile_photo_file: null,
-            }),
-        };
-        const data = await fetch('/api/user/register', requestOptions);
-        const res = await data.json();
-        console.log(res);
+        // let requestOptions = {
+        //     method: 'POST',
+        //     body: JSON.stringify({
+        //         name: dataUser.name,
+        //         lastname: dataUser.lastname,
+        //         email: dataUser.email,
+        //         phone_number: dataUser.phone_number,
+        //         created_by: 'crackokein',
+        //         role: 'Administrador',
+        //         password: dataUser.password,
+        //         profile_photo_file: dataUser.cover
+        //     })
+        // };
+        // const res = await fetch('/api/user/register',requestOptions);
+        // const data = await res.json();
+        console.log(data);
     },
 };

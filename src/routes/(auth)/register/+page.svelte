@@ -76,9 +76,9 @@
                                         <h5 class="text-primary">Create New Account</h5>
                                         <p class="text-muted">Get your free velzon account now</p>
                                     </div>
-                                    <form method="POST" enctype=multipart/form-data>
+                                    <form method="POST">
                                         <div class="p-2 mt-4">
-                                            <form method="POST">
+                                            <form method="POST" action="?/register" >
                                                 <div class="mb-3">
                                                     <label for="username" class="form-label">Nombre <span class="text-danger">*</span></label>
                                                     <input type="text" name="name" class="form-control" id="username" placeholder="Ingresa tu nombre" required>
@@ -133,7 +133,6 @@
                                                 <div class="mt-4">
                                                     <button class="btn btn-success w-100" type="submit">Sign Up</button>
                                                 </div>
-                                                <input type="hidden" name="action" value="create">
                                             </form>
                                         </div>
                                     </form>
